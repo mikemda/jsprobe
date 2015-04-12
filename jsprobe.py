@@ -110,9 +110,18 @@ def probe_window(webdriver):
 				noargfunctions.append(record['name'])
 			print '\t'+record['name']+': '+record['value']
 		print ""
+		
 		print "found "+str(len(noargfunctions))+" lone functions"
 		for record in noargfunctions:
 			print "\t"+record
+		print ""
+			
+		print "Calling "+str(len(noargfunctions))+" lone functions"
+		for record in noargfunctions:
+			print "\tCalling "+record
+			javascript = record+"();"
+			webdriver.execute_script(javascript)
+		
 			
 	except WebDriverException as e:
 		print "Selenium Exception: Message: "+str(e)
@@ -234,8 +243,3 @@ if __name__ == '__main__':
     if debug == False:
 		driver.quit()
 		display.stop()
-
-
-
-
-
