@@ -33,7 +33,7 @@ def runapp(url, driver):
 		
 		settledurl = driver.current_url
 		print '+++settled on '+settledurl
-		probe_window(driver)
+		probe_all(driver)
 	except:
 		print "error in runapp"
 		print "Unexpected error:", sys.exc_info()[0]
